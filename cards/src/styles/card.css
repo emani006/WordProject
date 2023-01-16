@@ -123,19 +123,6 @@ main .show-mean{
 main .show-mean:hover{
   transform: scale(1.2) translateY(-2px);
 }
-/*
-header .presentation:after {
-  content: 'Learn English easy with our cards';
-  position: absolute;
-  top: 10px;
-  left: 200px;
-  font-size: 25px;
-  font-weight: 600;
-  color: white;
-  background: #f5f5f5;
-
-}
-*/
 
 .word-english {
   transition: transform 300ms ease;
