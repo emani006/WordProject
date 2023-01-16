@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,600&display=swap');
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+* {
+  margin:0;
+  padding:0;
+}
+
+body {
+  box-sizing: border-box;
+  background: #fff;
+  color: #222;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+.wrapper {
+  width: 1280px;
+  margin: 50px auto;
+}
+
+header {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+header .top {
+  background-color: aqua;
+  width: 100%;
+  height: 80px;
+  position: relative;
+}
+
+header .motto {
+  position: absolute;
+  top: 25px;
+  left: 120px;
+  font-size: 25px;
+  font-weight: 600;
+  color: green;
+}
+
+header .logo {
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  background: url('../img/online.png') no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 60px;
+  height: 60px;
+}
+
+header ul.nav {
+  float: right;
+  list-style: none;
+  margin-top: 25px;
+  margin-right: 20px;
+}
+
+header ul.nav li {
+  display: inline;
+  margin-left: 25px;
+  cursor: pointer;
+  transition: opacity 200ms ease;
+}
+
+header ul.nav li:hover {
+  opacity: 0.5;
+}
+
+footer {
+  text-align: center;
+  margin-top: 100px;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+
+main .card{
+  width: 230px;
+  height: 250px;
+  padding-top: 20px;
+  margin-bottom: 50px;
+  text-align: center;
+  line-height: 50px;
+  background: url('../img/notes.jpg') no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: red;
+  position: relative;
+  box-shadow: 10px 5px 5px lightgrey;
+}
+
+main .card:hover {
+  cursor: pointer;
+}
+
+main h3, main p {
+  color:#333;
+}
+
+main .show-mean{
+  position: absolute;
+  width: 70px;
+  height: 25px;
+  right: 20px;
+  bottom: 20px;
+  font-size: 12px;
+  background: rgb(251, 170, 21);
+  border-radius: 5px;
+  text-align: center;
+  line-height: 20px;
+  border: 1px solid grey;
+  transition: transform 200ms ease;
+}
+
+main .show-mean:hover{
+  transform: scale(1.2) translateY(-2px);
+}
+/*
+header .presentation:after {
+  content: 'Learn English easy with our cards';
+  position: absolute;
+  top: 10px;
+  left: 200px;
+  font-size: 25px;
+  font-weight: 600;
+  color: white;
+  background: #f5f5f5;
+
+}
+*/
+
+.word-english {
+  transition: transform 300ms ease;
+}
+
+.word-english:hover {
+  transform: scale(1.2);
+}
+
+li{
+  list-style: none;
+}
+
