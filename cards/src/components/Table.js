@@ -4,7 +4,7 @@ import wordlist from './wordlist'
 export default function Table() {
     return (
     <div>
-        <table className="table table-sm table-striped">
+        <table className="table table-sm table-bordered">
             <thead className='thead-light'>
                 <tr>
                     <th scope="col">#</th>
@@ -18,22 +18,22 @@ export default function Table() {
                 <tr>
                     <th scope="row">
                         {wordlist.map(elem => {
-                            return <li>{elem.id}</li>;
+                            return <li key={elem.id}>{elem.id}</li>;
                         })}
                     </th>
                     <td>
                         {wordlist.map(elem => {
-                            return <li>{elem.english}</li>;
+                            return <li key={elem.id}>{elem.english}</li>;
                         })}
                     </td>
                     <td>
                         {wordlist.map(elem => {
-                            return <li>{elem.transcription}</li>;
+                            return <li key={elem.id}>{elem.transcription}</li>;
                         })}
                     </td>
                     <td>
                         {wordlist.map(elem => {
-                            return <li>{elem.russian}</li>;
+                            return <li key={elem.id}>{elem.russian}</li>;
                         })}
                     </td>
                 </tr>

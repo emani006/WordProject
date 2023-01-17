@@ -5,6 +5,7 @@ import "./styles/card.css"
 import wordlist from './components/wordlist'
 import Words from "./components/Words"
 import Table from "./components/Table"
+//import TableOne from "./components/TableOne"
 
 class App extends React.Component {
   render (){
@@ -12,7 +13,8 @@ class App extends React.Component {
       <div className="wrapper">
           <Header/>
           <Words words={wordlist}/>
-          <Table words={wordlist}/>
+          <Table key={wordlist.id} words={wordlist}/>
+          {/* <TableOne words={wordlist}/> */}
           <Footer/>
       </div>
     );
