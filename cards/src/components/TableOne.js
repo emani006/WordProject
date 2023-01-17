@@ -24,13 +24,15 @@ function TableOne({item}){
     return (
     <div className='table__container'>
         <div className="table">
-                <div>{item.id}</div>
-                <div>{item.english}</div>
-                <div>{item.transcription}</div>
-                <div>{item.russian}</div>
-                <button>Edit</button>
-                <button>Delete</button>
-            </div>
+                <div className='table__cell'>{item.id}</div>
+                <div className='table__cell'>{item.english}</div>
+                <div className='table__cell'>{item.transcription}</div>
+                <div className='table__cell'>{item.russian}</div>
+                <div className='table__cell'>
+                    <button className='table__button e'>Edit</button>
+                    <button className='table__button d'>Delete</button>
+                </div>
+        </div>
     </div>
             )
         }

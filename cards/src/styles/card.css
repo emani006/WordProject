@@ -138,12 +138,33 @@ li{
 
 .table__container {
   display: grid;
+  margin: 0;
+  padding-left: 45px;
 }
 
 .table {
   display: grid;
-  grid-template-columns: 100px 150px 150px 150px 70px 70px;
+  grid-template-columns: 100px 150px 150px 150px 200px;
   grid-template-rows: 1fr;
-  gap: 10px;
-  margin: 20px;
+  text-align: center;
+}
+
+.table__cell{
+  border: 1px solid grey;
+}
+
+.table__button{
+  width: 65px;
+  height: 30px;
+  margin: 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.e {
+  background-color: lightgreen;
+}
+
+.d {
+  background-color: orange;
 }
