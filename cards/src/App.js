@@ -4,8 +4,8 @@ import Footer from './components/Footer'
 import "./styles/card.css"
 import wordlist from './components/wordlist'
 import Words from "./components/Words"
-import Table from "./components/Table"
-//import TableOne from "./components/TableOne"
+//import Table from "./components/Table"
+import TableOne from "./components/TableOne"
 
 class App extends React.Component {
   render (){
@@ -13,8 +13,10 @@ class App extends React.Component {
       <div className="wrapper">
           <Header/>
           <Words words={wordlist}/>
-          <Table key={wordlist.id} words={wordlist}/>
-          {/* <TableOne words={wordlist}/> */}
+          {/* <Table key={wordlist.id} words={wordlist}/> */}
+            {wordlist.map(el => {
+              return <TableOne key={el.id} item={el}/>
+            })}
           <Footer/>
       </div>
     );

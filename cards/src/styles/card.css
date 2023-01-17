@@ -136,3 +136,14 @@ li{
   list-style: none;
 }
 
+.table__container {
+  display: grid;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 100px 150px 150px 150px 70px 70px;
+  grid-template-rows: 1fr;
+  gap: 10px;
+  margin: 20px;
+}
