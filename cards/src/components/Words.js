@@ -3,10 +3,15 @@ import Word from './Word'
 
 export class Words extends Component {
     render() {
+
+    const getClick = () => {
+        
+    }
+    
         return (
             <main>
                 {this.props.words.map(el => (
-                    <Word key={el.id} word={el}/>
+                    <Word key={el.id} word={el} getClick={getClick}/>
                 ))}
             </main>
         )

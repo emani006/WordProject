@@ -1,5 +1,5 @@
 //import React, { Component } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 // export class TableOne extends Component {
 //     render() {
@@ -34,7 +34,7 @@ function TableOne({item}){
                 </div>
         </div>
     </div>
-            )
-        }
+            
+)}
 
 export default TableOne

@@ -150,6 +150,7 @@ li{
 }
 
 .table__cell{
+  padding-left: 10px;
   border: 1px solid grey;
 }
 
@@ -167,4 +168,9 @@ li{
 
 .d {
   background-color: orange;
+}
+
+.table__header{
+  text-align: center;
+  background-color: yellowgreen;
 }
