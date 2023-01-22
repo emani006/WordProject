@@ -5,9 +5,10 @@ import Footer from './components/Footer'
 import "./styles/card.css"
 import wordlist from './components/wordlist'
 import Words from "./components/Words"
-//import Table from "./components/Table"
+// import Table from "./components/Table"
 //import TableOne from "./components/TableOne"
-import TableTwo from "./components/TableTwo"
+//import TableTwo from "./components/TableTwo"
+import TableInput from "./components/TableInput";
 
 class App extends React.Component {
   render (){
@@ -16,11 +17,12 @@ class App extends React.Component {
       <div className="wrapper">
           <Header/>
           <Words words={wordlist}/>
-          {/* <Table key={wordlist.id} words={wordlist}/> */}
+            {/* <Table key={wordlist.id} words={wordlist}/> */}
             {/* {wordlist.map(el => {
               return <TableOne key={el.id} item={el}/>
             })} */}
-            <TableTwo item={wordlist}/>
+            {/* <TableTwo item={wordlist}/> */}
+            <TableInput item={wordlist}/>
           <Footer/>
       </div>
     );

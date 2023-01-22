@@ -98,6 +98,7 @@ main .card{
 }
 
 main .card:hover {
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -118,9 +119,11 @@ main .show-mean{
   line-height: 20px;
   border: 1px solid grey;
   transition: transform 200ms ease;
+  /* box-shadow: 10px 5px 5px lightgrey; */
 }
 
 main .show-mean:hover{
+  box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
   transform: scale(1.2) translateY(-2px);
 }
 
@@ -160,6 +163,13 @@ li{
   margin: 10px;
   border: 1px solid grey;
   border-radius: 10px;
+  transition: transform 300ms ease;
+  box-shadow: 10px 5px 5px lightgrey;
+  font-weight: bold;
+}
+
+.table__button:hover{
+  transform: scale(1.2) translateY(-1px);
 }
 
 .e {
@@ -169,8 +179,19 @@ li{
 .d {
   background-color: orange;
 }
+.s {
+  background-color: lightseagreen;
+}
+
+.c {
+  background-color: lightcoral;
+}
 
 .table__header{
   text-align: center;
   background-color: yellowgreen;
+}
+
+.table__row_input{
+  background-color: bisque;
 }

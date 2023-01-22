@@ -1,41 +1,46 @@
 import React from 'react'
-import wordlist from './wordlist'
+//import wordlist from './wordlist'
 
-export default function Table() {
+export default function Table({words}) {
     return (
-    <div>
-        <table className="table table-sm table-bordered">
-            <thead className='thead-light'>
+    <div className='table__container'>
+        <table >
+        <thead className='table__header'>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">English</th>
-                    <th scope="col">Transcription</th>
-                    <th scope="col">Russian</th>
-                    <th scope="col"></th>
+                <th className='table__cell'>#</th>
+                    <th className='table__cell'>English</th>
+                    <th className='table__cell'>Transcription</th>
+                    <th className='table__cell'>Russian</th>
+                    <th className='table__cell'></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row">
-                        {wordlist.map(elem => {
+                    <th className='table__cell'>
+                        {words.map(elem => {
                             return <li key={elem.id}>{elem.id}</li>;
                         })}
                     </th>
-                    <td>
-                        {wordlist.map(elem => {
+                    <td className='table__cell'>
+                        {words.map(elem => {
                             return <li key={elem.id}>{elem.english}</li>;
                         })}
-                    </td>
-                    <td>
-                        {wordlist.map(elem => {
+                    </td >
+                    <td className='table__cell'>
+                        {words.map(elem => {
                             return <li key={elem.id}>{elem.transcription}</li>;
                         })}
                     </td>
-                    <td>
-                        {wordlist.map(elem => {
+                    <td className='table__cell'>
+                        {words.map(elem => {
                             return <li key={elem.id}>{elem.russian}</li>;
                         })}
                     </td>
+                    <td className='table__cell'>
+                        <button className='table__button e'>Edit</button>
+                        <button className='table__button d'>Delete</button>
+                    </td>
+
                 </tr>
             </tbody>
         </table>
