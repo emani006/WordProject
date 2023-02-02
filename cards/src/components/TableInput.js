@@ -20,14 +20,14 @@ export default function TableInput({item}) {
                     <th className='table__cell'>Transcription</th>
                     <th className='table__cell'>Russian</th>
                     <th className='table__cell'></th>
-                </tr>
+                </tr> 
             </thead>
             <tbody onClick={handleChange}>
-            {item.map(elem => {
-                if (isActive === true) return <Tinput key={elem.id} isActive={elem.isActive} elem={elem}/>
-                else return <Trow key={elem.id} isActive={elem.isActive} elem={elem}/>
-                }
-            )}
+                {item.map(elem => {
+                        if (isActive === true) return <Tinput key={elem.id} isActive={elem.isActive} elem={elem} handleChange={handleChange}/>
+                        else return <Trow key={elem.id} isActive={elem.isActive} elem={elem} handleChange={handleChange}/> 
+                    })}
+                 {/* })} */}
             </tbody>
         </table>
     </div>

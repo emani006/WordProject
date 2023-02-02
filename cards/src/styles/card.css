@@ -106,15 +106,17 @@ main h3, main p {
   color:#333;
 }
 
-main .show-mean{
-  position: absolute;
-  width: 70px;
-  height: 25px;
+main .show-button{
+  /* position: absolute;
   right: 20px;
-  bottom: 20px;
-  font-size: 12px;
+  bottom: 20px; */
+  margin: 0 auto;
+  width: 120px;
+  height: 35px;
+  font-size: 14px;
+  font-weight: bold;
   background: rgb(251, 170, 21);
-  border-radius: 5px;
+  border-radius: 10px;
   text-align: center;
   line-height: 20px;
   border: 1px solid grey;
@@ -122,9 +124,27 @@ main .show-mean{
   /* box-shadow: 10px 5px 5px lightgrey; */
 }
 
-main .show-mean:hover{
+main .show-button:hover{
   box-shadow: 0 15px 20px rgba(103, 104, 104, 0.4);
   transform: scale(1.2) translateY(-2px);
+}
+
+main .show-button__hide{
+  background: rgb(251, 170, 21, 0);
+  border: none;
+  position: absolute;
+  right: 80px;
+  bottom: 63px;
+  width: 100px;
+  color: rgb(255, 255, 255, 0);
+}
+
+main .show-mean{
+  display: none;
+}
+
+main .show-mean__show{
+  display:inline-flexbox;
 }
 
 .word-english {

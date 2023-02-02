@@ -7,7 +7,7 @@ import wordlist from './components/wordlist'
 import Words from "./components/Words"
 // import Table from "./components/Table"
 //import TableOne from "./components/TableOne"
-//import TableTwo from "./components/TableTwo"
+// import TableTwo from "./components/TableTwo"
 import TableInput from "./components/TableInput";
 
 class App extends React.Component {

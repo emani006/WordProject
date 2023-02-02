@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Word from './Word'
+import Card from './Card'
 
 export class Words extends Component {
     render() {
@@ -7,7 +7,7 @@ export class Words extends Component {
         return (
             <main>
                 {this.props.words.map(el => (
-                    <Word key={el.id} word={el} />
+                    <Card key={el.id} word={el} />
                 ))}
             </main>
         )
