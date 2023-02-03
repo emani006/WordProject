@@ -1,5 +1,6 @@
 import React from 'react'
-//import wordlist from './wordlist'
+// import wordlist from './wordlist'
+// import Cell from './Cell'
 
 export default function Table({words}) {
     return (

@@ -1,15 +1,8 @@
-import React, {useState} from 'react'
-import Trow from './Trow'
-import Tinput from './Tinput';
+// import React, {useState} from 'react'
+import React from 'react'
+import Row from './Row';
 
 export default function TableInput({item}) {
-    const [isActive, setActive] = useState(item.isActive);
-
-    const handleChange = () => {
-        setActive (!isActive);
-        console.log(isActive);
-    };
-
     return (
     <div className='table__container'>
         <table>
@@ -22,12 +15,10 @@ export default function TableInput({item}) {
                     <th className='table__cell'></th>
                 </tr> 
             </thead>
-            <tbody onClick={handleChange}>
+            <tbody >
                 {item.map(elem => {
-                        if (isActive === true) return <Tinput key={elem.id} isActive={elem.isActive} elem={elem} handleChange={handleChange}/>
-                        else return <Trow key={elem.id} isActive={elem.isActive} elem={elem} handleChange={handleChange}/> 
-                    })}
-                 {/* })} */}
+                    return <Row key={elem.id} id={elem.id} english={elem.english} transcription={elem.transcription} russian={elem.russian} isActive={elem.isActive}></Row>
+                })}
             </tbody>
         </table>
     </div>

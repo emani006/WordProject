@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Card from './Card'
 
-export class Words extends Component {
+export default class Words extends Component {
     render() {
 
         return (
@@ -13,5 +13,3 @@ export class Words extends Component {
         )
     }
 }
-
-export default Words
