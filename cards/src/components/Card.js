@@ -2,13 +2,17 @@ import React, {useState}  from 'react'
 
 export default function Card(props) {
     let classname = 'show-mean';
-    let buttonName = 'Translate';
+    let buttonName = 'Click to translate';
     let buttonClassName = 'show-button';
-    const [isActive, setActive] = useState(props.isActive);
+    let [isActive, setActive] = useState(props.isActive);
 
     const handleClick = () => {
         setActive (!isActive);
-    };
+    }
+
+    const notShow = () => {
+        setActive (isActive = false);
+    }
 
     if (isActive === true) {
         classname+='__show';
@@ -16,7 +20,7 @@ export default function Card(props) {
     }
 
         return (
-        <div className='card'>
+        <div className='card' onMouseLeave={notShow} >
             <h1 className='word-english'>{props.word.english}</h1>
             <p>{props.word.transcription}</p>
             <h3 className={classname}>{props.word.russian}</h3>

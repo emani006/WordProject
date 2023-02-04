@@ -113,12 +113,12 @@ main .show-button{
   right: 20px;
   bottom: 20px; */
   margin: 0 auto;
-  width: 120px;
+  width: 150px;
   height: 35px;
   font-size: 14px;
   font-weight: bold;
   background: rgb(255, 177, 31);
-  border-radius: 10px;
+  border-radius: 20px;
   text-align: center;
   line-height: 20px;
   border: 1px solid grey;
@@ -137,7 +137,7 @@ main .show-button__hide{
   position: absolute;
   right: 80px;
   bottom: 63px;
-  width: 100px;
+  width: 150px;
   color: rgb(255, 255, 255, 0);
 }
 

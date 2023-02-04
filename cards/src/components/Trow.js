@@ -15,7 +15,7 @@ export default function Trow({elem}){
                             <td className='table__cell'>
                                 {elem.id}
                             </td>
-                            <td className='table__cell'>
+                            <td className='table__cell'> 
                                 {elem.english}
                             </td>
                             <td className='table__cell'>
@@ -35,13 +35,13 @@ export default function Trow({elem}){
                         {elem.id}
                     </td>
                     <td className='table__cell'>
-                        <input type='text' value={elem.english}/>
+                        <input type='text' defaultValue={elem.english}/>
                     </td>
                     <td className='table__cell'>
-                        <input type='text' value={elem.transcription}/>
+                        <input type='text' defaultValue={elem.transcription}/>
                     </td>
                     <td className='table__cell'>
-                        <input type='text' value={elem.russian}/>
+                        <input type='text' defaultValue={elem.russian}/>
                     </td>
                     <td className='table__cell'>
                         <button className='table__button s'>Save</button>
