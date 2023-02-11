@@ -1,10 +1,32 @@
 import React, {useState} from 'react'
+import wordlist from './wordlist';
 
 export default function Row(elem){
     const [isActive, setActive] = useState(elem.isActive);
-    // let [english, setEnglish] = useState(elem.english);
-    // let [russian, setRussian] = useState(elem.russian);
-    // let [transcription, setTranscription] = useState(elem.transcription);
+    const [english, setEnglish] = useState(elem.english);
+    const [russian, setRussian] = useState(elem.russian);
+    const [transcription, setTranscription] = useState(elem.transcription);
+    const [id] = useState(elem.id);
+
+    const changeWord= () => {
+        let newWord = {
+            id: id,
+            english: english,
+            russian: russian,
+            transcription: transcription
+        };
+        
+        let word = wordlist.find(item => item.id === id);
+        console.log(word);
+        
+        let wordIndex = wordlist.indexOf(wordlist.find(item => item.id === id),0);
+        console.log(wordIndex);
+        wordlist[wordIndex]= word;
+        console.log(wordlist[wordIndex]);
+        console.log(newWord);
+        console.log(wordlist);
+        handleTableChange();
+    }
 
     let rowClassName='table_row';
     let inputClassName='table_row_input';
@@ -15,28 +37,18 @@ export default function Row(elem){
         console.log(elem.id);
     };
 
-    // const changeInput = (event) =>{
-    //     console.log(event.targe.value);
-    //     
-    // }
-
-    // const submitChange = (event) => {
-    //     event.preventDefault();
-    // }
-
-
     if (!isActive) return(<tr key={elem.id} className={rowClassName} >
                             <td className='table__cell'>
                                 {elem.id}
                             </td>
                             <td className='table__cell'> 
-                                {elem.english}
+                                {english}
                             </td>
                             <td className='table__cell'>
-                                {elem.transcription}
+                                {transcription}
                             </td>
                             <td className='table__cell'>
-                                {elem.russian}
+                                {russian}
                             </td>
                             <td className='table__cell'>
                                 <button className='table__button e' onClick={handleTableChange}>Edit</button>
@@ -49,16 +61,16 @@ export default function Row(elem){
                         {elem.id}
                     </td>
                         <td className='table__cell'>
-                            <input name='eng' type='text' defaultValue={elem.english}/>
+                            <input name='eng' type='text' value={english} onChange={(event) => setEnglish(event.target.value)}/>
                         </td>
                         <td className='table__cell'>
-                            <input name='spell' type='text' defaultValue={elem.transcription}/>
+                            <input name='spell' type='text' value={transcription} onChange={(event) => setTranscription(event.target.value)}/>
                         </td>
                         <td className='table__cell'>
-                            <input name='rus' type='text' defaultValue={elem.russian}/>
+                            <input name='rus' type='text' value={russian} onChange={(event) => setRussian(event.target.value)}/>
                         </td>
                         <td className='table__cell'>
-                            <button className='table__button s'>Save</button>
+                            <button className='table__button s' onClick={changeWord}>Save</button>
                             <button className='table__button c' onClick={handleTableChange}>Cancel</button>
                         </td>
                 </tr>

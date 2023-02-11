@@ -9,6 +9,9 @@ import Words from "./components/Words"
 // import TableOne from "./components/TableOne"
 // import TableTwo from "./components/TableTwo"
 import TableInput from "./components/TableInput";
+import Slider from './components/Slider';
+
+const wordStos = wordlist.map((word) => {return word});  
 
 class App extends React.Component {
   render (){
@@ -16,6 +19,15 @@ class App extends React.Component {
     return (
       <div className="wrapper">
           <Header/>
+
+          {/* <div className="cardBox">
+            <div className="cardPlace">
+              <div className="wordPlace">
+                <Slider words={wordlist}/>
+              </div>
+            </div>
+          </div> */}
+
           <Words words={wordlist}/>
             {/* <Table key={wordlist.id} words={wordlist}/> */}
             {/* {wordlist.map(el => {

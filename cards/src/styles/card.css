@@ -76,18 +76,60 @@ footer {
   margin-top: 100px;
 }
 
-main {
+.cardBox{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+  border: 1px solid red;
+  float: left;
+}
+
+/* start */
+.cardBox:before {
+  content: "";
+  background: #eff4de;
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+  border: 1px solid red;
+  position: absolute;
+    z-index: -1;
+    top: 0px;
+    left: -10px;
+}
+
+.cardBox:after {
+  content: "";
+  background: #768590;
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+  border: 1px solid red;
+  position: absolute;
+    z-index: -1;
+    top: 5px;
+    left: 0px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    transform: rotate(4deg);
+  }
+/* end */
+  
+.cardPlace{
+  position: absolute;
+}
+
+.sliderStack{
   display: flex;
   width: 100%;
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 30px;
+  position: relative; /*  */
 }
-
-main .card{
+.sliderStack .card{
   width: 230px;
   height: 250px;
-  padding-top: 20px;
   margin-bottom: 50px;
   text-align: center;
   line-height: 50px;
@@ -95,8 +137,34 @@ main .card{
   background-size: cover;
   background-position: center center;
   color: red;
+  box-shadow: 5px 5px 10px lightgrey;
   position: relative;
-  box-shadow: 10px 5px 5px lightgrey;
+  /* position: absolute; */
+}
+
+
+main {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 30px;
+  position: relative; /*  */
+}
+
+main .card{
+  width: 230px;
+  height: 250px;
+  margin-bottom: 50px;
+  text-align: center;
+  line-height: 50px;
+  background: url('../img/notes.jpg') no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: red;
+  box-shadow: 5px 5px 10px lightgrey;
+  position: relative;
+  /* position: absolute; */
 }
 
 main .card:hover {
@@ -220,4 +288,36 @@ li{
 
 input {
   width: 130px;
+}
+
+/* flip-flop effect */
+.scene {
+  perspective: 600px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style:preserve-3d;
+}
+
+.card__face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.card__face-front {
+  background: blue;
+}
+
+.card__face-back {
+  transform: rotateY( 180deg );
+}
+
+.card.is-flipped {
+  transform: rotateY(180deg);
 }

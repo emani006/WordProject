@@ -1,5 +1,6 @@
 // import React, {useState} from 'react'
 import React from 'react'
+// import Row1 from './Row';
 import Row from './Row';
 
 export default function TableInput({item}) {
