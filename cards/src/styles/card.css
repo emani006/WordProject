@@ -27,10 +27,13 @@ header {
 }
 
 header .top {
+  position: fixed;
+  top: 0;
   background-color: aqua;
   width: 100%;
   height: 80px;
-  position: relative;
+  margin-bottom: 50px;
+  /* position: relative; */
 }
 
 header .motto {
@@ -57,7 +60,7 @@ header ul.nav {
   float: right;
   list-style: none;
   margin-top: 25px;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 header ul.nav li {
@@ -65,10 +68,16 @@ header ul.nav li {
   margin-left: 25px;
   cursor: pointer;
   transition: opacity 200ms ease;
+  text-decoration: none;
 }
 
 header ul.nav li:hover {
-  opacity: 0.5;
+  opacity: 0.7;
+}
+
+.link{
+  color: #111122;
+  text-decoration: none;
 }
 
 footer {
@@ -76,17 +85,8 @@ footer {
   margin-top: 100px;
 }
 
-.cardBox{
-  position: relative;
-  width: 300px;
-  height: 300px;
-  margin: 20px;
-  border: 1px solid red;
-  float: left;
-}
-
 /* start */
-.cardBox:before {
+/* .cardBox:before {
   content: "";
   background: #eff4de;
   width: 300px;
@@ -112,21 +112,46 @@ footer {
     left: 0px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     transform: rotate(4deg);
-  }
+  } */
 /* end */
   
-.cardPlace{
+/* .cardPlace{
   position: absolute;
+} */
+
+.cardContainer{
+  display: grid;
+  justify-items: center;
+  margin-bottom: 100px;
+  /* border: 1px solid blue; */
+  margin-top: 80px;
 }
 
-.sliderStack{
+.cardBox{
+  position: relative;
+  display: grid;
+  grid-template-rows: 100px 1fr 100px;
+  grid-template-columns: 1fr 50px;
+  width: 900px;
+  height: 350px;
+  /* width: 300px;
+  height: 300px; */
+  margin: 20px;
+  /* float: left; */
+  justify-items: center;
+  text-align: center;
+  /* border: 1px solid red; */
+}
+
+
+/* .sliderStack{
   display: flex;
   width: 100%;
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 30px;
   position: relative; /*  */
-}
+/* }
 .sliderStack .card{
   width: 230px;
   height: 250px;
@@ -138,9 +163,9 @@ footer {
   background-position: center center;
   color: red;
   box-shadow: 5px 5px 10px lightgrey;
-  position: relative;
+  position: relative; */
   /* position: absolute; */
-}
+/* } */
 
 
 main {
@@ -153,9 +178,10 @@ main {
 }
 
 main .card{
-  width: 230px;
-  height: 250px;
-  margin-bottom: 50px;
+  width: 400px;
+  height: 300px;
+  padding-top: 20px;
+  margin-bottom: 30px;
   text-align: center;
   line-height: 50px;
   background: url('../img/notes.jpg') no-repeat;
@@ -181,8 +207,8 @@ main .show-button{
   right: 20px;
   bottom: 20px; */
   margin: 0 auto;
-  width: 150px;
-  height: 35px;
+  width: 200px;
+  height: 40px;
   font-size: 14px;
   font-weight: bold;
   background: rgb(255, 177, 31);
@@ -219,6 +245,7 @@ main .show-mean__show{
 
 .word-english {
   font-weight: 600;
+  font-size: 50px;
   transition: transform 300ms ease;
 }
 
@@ -230,9 +257,13 @@ li{
   list-style: none;
 }
 
+
+/* table START */
+
 .table__container {
   /* display: grid; */
-  margin: 0;
+  margin-top: 80px;
+  padding-top: 30px;
   padding-left: 45px;
   text-align: left;
 }
@@ -275,22 +306,25 @@ li{
 
 .table__header{
   text-align: center;
-  background-color: plum;
+  background-color: #cacaea;
+  /* background-color: plum; */
 }
 
 .table_row{
-  background-color: bisque;
-
+  background-color: rgb(250, 235, 216);
+  /* background-color: bisque; */
 }
 .table_row_input{
-  background-color: khaki;
+  background-color: rgb(250, 220, 144);
+  /* background-color: rgb(250, 245, 211); */
 }
 
 input {
   width: 130px;
 }
+/* table END */
 
-/* flip-flop effect */
+/* flip-flop effect START */
 .scene {
   perspective: 600px;
 }
@@ -310,14 +344,106 @@ input {
   backface-visibility: hidden;
 }
 
-.card__face-front {
-  background: blue;
-}
-
 .card__face-back {
   transform: rotateY( 180deg );
 }
 
 .card.is-flipped {
   transform: rotateY(180deg);
+}
+/* flip-flop effect END */
+
+
+
+/* button navigation */
+.navig {
+  /* width: var(--layout-width); */
+  /* margin: auto; */
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  margin: 20px auto;
+  /* gap: 10px; */
+  align-items: center;
+}
+
+.navig button {
+  border: none;
+  background: #111122;
+  color: white;
+  font-size: 0.9em;
+  padding: 0.8em 1.2em;
+  border-radius: 2em;
+  /* margin: 1em 5px; */
+  opacity: 0.85;
+  /* transition: all 0.25s; */
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+}
+
+.navig button:hover {
+  opacity: 1;
+  /* transform: translateY(-2px); */
+}
+
+.navig button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  /* transform: translateY(0px); */
+}
+
+.navig button:focus {
+  outline: none;
+}
+
+
+/* page 404 */
+.container_nf_outer{
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.container_nf_inner{
+  display: flex;
+  width: 600px;
+  height: 600px;
+}
+
+.container_nf_inner h2{
+  text-align: center;
+  font-weight: bold;
+}
+
+.container_nf_inner .link:hover{
+  color:white;
+}
+.button-404{
+  /* border: none; */
+  background: orange;
+  color: black;
+  font-size: 20px;
+  border-radius: 2em;
+  cursor: pointer;
+  width: 150px;
+  height: 45px;
+  transition: all 0.25s;
+}
+
+.button-404:hover{
+  background: rgb(215, 116, 3);
+  transform: translateY(-2px);
+}
+
+.notfound{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: url('../img/palm4044.png') no-repeat;
+  background-size: cover;
+  background-position: center center;
+  justify-content:flex-end;
+  align-items:center;
+  padding-bottom: 7.5em;
+  padding-left: 5em;
 }

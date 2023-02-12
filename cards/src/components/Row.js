@@ -8,7 +8,7 @@ export default function Row(elem){
     const [transcription, setTranscription] = useState(elem.transcription);
     const [id] = useState(elem.id);
 
-    const changeWord= () => {
+    const changeWord = () => {
         let newWord = {
             id: id,
             english: english,
@@ -17,15 +17,26 @@ export default function Row(elem){
         };
         
         let word = wordlist.find(item => item.id === id);
-        console.log(word);
         
         let wordIndex = wordlist.indexOf(wordlist.find(item => item.id === id),0);
-        console.log(wordIndex);
         wordlist[wordIndex]= word;
+        handleTableChange();
+
+        console.log(word);
+        console.log(wordIndex);
         console.log(wordlist[wordIndex]);
         console.log(newWord);
         console.log(wordlist);
-        handleTableChange();
+    }
+
+    const deleteWord = () => {
+        let word = wordlist.find(item => item.id === id);
+        console.log(word);
+        console.log(word.id);
+
+        let i = wordlist.indexOf(word);
+        wordlist.splice(i, 1);
+        console.log(wordlist);
     }
 
     let rowClassName='table_row';
@@ -52,7 +63,7 @@ export default function Row(elem){
                             </td>
                             <td className='table__cell'>
                                 <button className='table__button e' onClick={handleTableChange}>Edit</button>
-                                <button className='table__button d'>Delete</button>
+                                <button className='table__button d' onClick={deleteWord}>Delete</button>
                             </td>
                         </tr>
                 )

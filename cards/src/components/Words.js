@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-// import Card from './Card'
-import CardFlipFlop from './CardFlipFlop'
+import Card from './Card'
+// import CardFlipFlop from './CardFlipFlop'
 
 export default class Words extends Component {
     render() {
@@ -8,8 +8,8 @@ export default class Words extends Component {
         return (
             <main>
                     {this.props.words.map(el => (
-                        // <Card key={el.id} word={el} />
-                        <CardFlipFlop key={el.id} word={el} />
+                        <Card key={el.id} word={el} />
+                        // <CardFlipFlop key={el.id} word={el} />
                     ))}
             </main>
         )
