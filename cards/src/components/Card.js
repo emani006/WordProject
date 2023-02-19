@@ -1,4 +1,4 @@
-import React, {useState}  from 'react'
+import React, {useState, useRef, useEffect}  from 'react'
 
 export default function Card(props) {
     let classname = 'show-mean';
@@ -19,12 +19,29 @@ export default function Card(props) {
         buttonClassName += '__hide';
     }
 
+    const buttonRef = useRef();
+
+    const focus = () => {
+        buttonRef.current.focus();
+        console.log('Focus');
+    }
+
+    useEffect(() => {
+        focus();
+    })
+
+
+    const FancyButton = React.forwardRef((props,ref) => (
+        <button ref={buttonRef} className={buttonClassName} onClick={handleClick}>{props.children}</button>
+        ));
+        
         return (
         <div className='card' onMouseLeave={notShow} >
             <h1 className='word-english'>{props.word.english}</h1>
             <p>{props.word.transcription}</p>
             <h3 className={classname}>{props.word.russian}</h3>
-            <button className={buttonClassName} onClick={handleClick}>{buttonName}</button>
+            <FancyButton ref={buttonRef}>{buttonName}</FancyButton>
+            {/* <button ref={buttonRef} className={buttonClassName} onClick={handleClick}>{buttonName}</button> */}
         </div>
         )
 }

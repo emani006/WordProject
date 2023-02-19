@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Card from './Card'
 // import CardFlipFlop from './CardFlipFlop'
 import wordlist from '../components/wordlist'
-
+// import CardClass from './CardClass'
 
 export default function Slider(props) {
     const [current, setCurrent] = useState(0);
@@ -18,13 +18,11 @@ export default function Slider(props) {
 
     // альтернатива, если закончился массив выводимых слов
     const loading = <div className="loading">Loading card...</div>;
-    
 
-        return (
-    <div className="cardContainer">
-        <div className="cardBox">
-
-            <main>
+    return (
+<div className="cardContainer">
+    <div className="cardBox">
+        <main>
 
         {/* buttons previous */}
         <div className="navig">

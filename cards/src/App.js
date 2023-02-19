@@ -30,7 +30,7 @@ class App extends React.Component {
 
 
           {/* рабочий <div className="cardContainer">
-              <div рабочий className="cardBox"> */}
+             рабочий <div className="cardBox"> */}
                 {/* <div className="cardPlace"> */}
                   {/* <div className="wordPlace"> */}
                     {/* рабочий <Slider words={wordlist.map(word => {return word})}/> */}
