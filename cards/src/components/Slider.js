@@ -6,6 +6,7 @@ import wordlist from '../components/wordlist'
 
 export default function Slider(props) {
     const [current, setCurrent] = useState(0);
+    const [wordCount, setWordCount] = useState(0);
     
     function previousCard() {
         setCurrent(current - 1);
@@ -18,6 +19,10 @@ export default function Slider(props) {
 
     // альтернатива, если закончился массив выводимых слов
     const loading = <div className="loading">Loading card...</div>;
+
+    const handleWordCounter = () => {
+        setWordCount(wordCount + 1);
+    }
 
     return (
 <div className="cardContainer">
@@ -37,12 +42,12 @@ export default function Slider(props) {
 
         {/* show Card or loading text */}
         <div>
-            {items && items.length > 0 ? <Card key={items.id} word={items[current]}/> : loading}
+            {items && items.length > 0 ? <Card key={items.id} word={items[current]} handleWordCounter={handleWordCounter}/> : loading}
                 <div>
                     {items && items.length > 0 ? (
                         <div >
                             Card {current + 1} of {items.length}
-                        </div>) : ("")}  
+                        </div>) : ("")}
                 </div>
         </div>
 
@@ -56,7 +61,9 @@ export default function Slider(props) {
                 </button>
                 )}
         </div>
-
+        <div className=''>
+            <p>Number of words learned: {wordCount}</p>
+        </div>
 
         </main>
     </div>

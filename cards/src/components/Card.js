@@ -1,13 +1,15 @@
 import React, {useState, useRef, useEffect}  from 'react'
 
-export default function Card(props) {
+export default function Card(props,ref) {
     let classname = 'show-mean';
     let buttonName = 'Click to translate';
     let buttonClassName = 'show-button';
     let [isActive, setActive] = useState(props.isActive);
+    // const [wordCount, setWordCount] = useState(0);
 
-    const handleClick = () => {
+    const handleClick = (e) => {
         setActive (!isActive);
+        props.handleWordCounter();
     }
 
     const notShow = () => {
@@ -21,21 +23,15 @@ export default function Card(props) {
 
     const buttonRef = useRef();
 
-    const focus = () => {
-        buttonRef.current.focus();
-        console.log('Focus');
-    }
-
     useEffect(() => {
-        focus();
+        buttonRef.current.focus();
     })
-
 
     const FancyButton = React.forwardRef((props,ref) => (
         <button ref={buttonRef} className={buttonClassName} onClick={handleClick}>{props.children}</button>
         ));
         
-        return (
+    return (
         <div className='card' onMouseLeave={notShow} >
             <h1 className='word-english'>{props.word.english}</h1>
             <p>{props.word.transcription}</p>
