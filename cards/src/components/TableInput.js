@@ -1,8 +1,12 @@
 import React from 'react'
 // import Row1 from './Row';
 import Row from './Row';
+// import wordlist from './wordlist';
+
 
 export default function TableInput({item}) {
+
+
     return (
     <div className='table__container'>
         <table>

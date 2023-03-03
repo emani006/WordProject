@@ -1,31 +1,70 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Card from './Card'
 // import CardFlipFlop from './CardFlipFlop'
 import wordlist from '../components/wordlist'
 // import CardClass from './CardClass'
+import CardMini from './CardMini';
+
 
 export default function Slider(props) {
     const [current, setCurrent] = useState(0);
     const [wordCount, setWordCount] = useState(0);
-    
-    function previousCard() {
-        setCurrent(current - 1);
-    }
-    function nextCard() {
-        setCurrent(current + 1);
-    }
+    const [isLearned, setLearned] = useState(false);
+
+let wordsLearnedArray = [];
+
+    // const previousCard = () => {
+    //     setCurrent(current - 1);
+    // }
+    // const nextCard = () => {
+    //     setCurrent(current + 1);
+    // }
 
     const [items] = useState (props.words);
 
-    // альтернатива, если закончился массив выводимых слов
-    const loading = <div className="loading">Loading card...</div>;
 
+    // const previousCard = () => setCurrent((prevState) => ({ current : prevState.current - 1 }));
+    // const nextCard = () => setCurrent((prevState) => ({ current : prevState.current + 1 }));
+
+
+    const previousCard = () => setCurrent((prevState) => ( prevState - 1 ));
+    const nextCard = () => setCurrent((prevState) => ( prevState + 1 ));
+
+
+    // альтернатива, если закончился массив выводимых слов
+    const loading = <div className="loading">That's all, folks! 
+                        <div>
+                            To step back, use PREVIOUS CARD button
+                        </div>
+                    </div>;
+
+
+    // подсчет кликов по кнопке 'Click to translate'
     const handleWordCounter = () => {
         setWordCount(wordCount + 1);
+        // console.log('isLearned changed:' + isLearned);
+        // setLearned(isLearned = true);
+        if (isLearned === false){
+            setWordCount(wordCount + 1);
+            setLearned(true);
+        } else {
+            setLearned(false);
+        }
+        console.log('isLearned changed:' + isLearned);
     }
+
+    // классы для компонента Card
+    const classname = 'show-mean';
+    const buttonClassName = 'show-button';
+
 
     return (
 <div className="cardContainer">
+
+    <div className='learned-words'>
+        <p>Number of words learned today: {wordCount}</p>
+    </div>
+
     <div className="cardBox">
         <main>
 
@@ -42,9 +81,9 @@ export default function Slider(props) {
 
         {/* show Card or loading text */}
         <div>
-            {items && items.length > 0 ? <Card key={items.id} word={items[current]} handleWordCounter={handleWordCounter}/> : loading}
+            {items && items.length && (current < wordlist.length) > 0 ? <Card key={items.id} word={items[current]} classname={classname} buttonClassName={buttonClassName} handleWordCounter={handleWordCounter}/> : loading}
                 <div>
-                    {items && items.length > 0 ? (
+                    {items && items.length > 0 && (current < wordlist.length) ? (
                         <div >
                             Card {current + 1} of {items.length}
                         </div>) : ("")}
@@ -53,7 +92,7 @@ export default function Slider(props) {
 
         {/* button next */}
         <div className="navig">
-            {current < wordlist.length - 1 ? (
+            {current <= wordlist.length - 1 ? (
                 <button onClick={nextCard}>Next card &raquo; </button>
                 ) : (
                 <button className="disabled" disabled>
@@ -61,11 +100,32 @@ export default function Slider(props) {
                 </button>
                 )}
         </div>
-        <div className=''>
-            <p>Number of words learned: {wordCount}</p>
+        </main>
+    </div>
+
+    <div className='word-groups'>
+        <div className='wordsBox'>
+            <div className='wordsUnknown'>Unknown</div>
         </div>
 
-        </main>
+        <div className='wordsBox'>
+            {current+1 < items.length ? <CardMini key={items.id} word={items[current+1]}/> : ''}
+            <div className='wordsRemain'>
+                <p>Remain</p>
+                <div>
+                    {items && items.length > 0 && (current < wordlist.length) ? (
+                            <div >
+                                Cards to study: {items.length - current - 1}
+                            </div>) : (<div >
+                                Cards to study: {items.length - current}
+                            </div>)}
+                </div>
+            </div>
+        </div>
+
+        <div className='wordsBox'>
+            <div className='wordsKnown'>Known</div>
+        </div>
     </div>
     </div>
         )
