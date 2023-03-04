@@ -9,15 +9,20 @@ import CardMini from './CardMini';
 export default function Slider(props) {
     const [current, setCurrent] = useState(0);
     const [wordCount, setWordCount] = useState(0);
-    const [isLearned, setLearned] = useState(false);
+    const [wordsLearnedArray] = useState([]);
+    // const [isKnown, setKnown] = useState(false);
 
-    // let wordsLearnedArray = [];
 
+    // классы для компонента Card
+    const classname = 'show-mean';
+    const buttonClassName = 'show-button';
+    
 
     const [items] = useState (props.words);
-    // console.log(items.length);
-    // console.log(items);
 
+    const switchCard = () => {
+        
+    }
 
     // const previousCard = () => setCurrent((prevState) => ( prevState - 1 ));
     // const nextCard = () => setCurrent((prevState) => ( prevState + 1 ));
@@ -43,7 +48,6 @@ export default function Slider(props) {
     };
 
 
-
     // альтернатива, если закончился массив выводимых слов
     const loading = <div className="loading">That's all, folks! 
                         <div>
@@ -52,23 +56,19 @@ export default function Slider(props) {
                     </div>;
 
 
-    // подсчет кликов по кнопке 'Click to translate'
+    // подсчет кликов по кнопке 'Click to translate' невыученных слов
     const handleWordCounter = () => {
-        setWordCount(wordCount + 1);
-        // console.log('isLearned changed:' + isLearned);
-        // setLearned(isLearned = true);
-        if (isLearned === false){
-            setWordCount(wordCount + 1);
-            setLearned(true);
-        } else {
-            setLearned(false);
-        }
-        console.log('isLearned changed:' + isLearned);
-    }
+            wordsLearnedArray.push(items[current]);
 
-    // классы для компонента Card
-    const classname = 'show-mean';
-    const buttonClassName = 'show-button';
+            if (items[current].isLearned === false){
+                setWordCount((prevState) => ( prevState + 1 ));
+                items[current].isLearned = true;
+            } else {
+                wordsLearnedArray.pop(items[current]);
+            }
+        console.log(items[current].isLearned);
+            console.log(wordsLearnedArray);
+    }
 
 
     return (
@@ -129,7 +129,8 @@ export default function Slider(props) {
         </div>
 
         <div className='wordsBox'>
-                {current+1 < items.length ? <CardMini className='cardMini' key={items.id} word={items[current+1]}/> : ''}
+                {current+1 < items.length ? <CardMini className='cardMini' key={items.id} word={items[current+1]}/> : ''
+                }
             <div className=' wordsRemain'>
                 <p>Remain</p>
                 <div>
@@ -148,5 +149,5 @@ export default function Slider(props) {
         </div>
     </div>
 </div>
-        )
+    )
 }

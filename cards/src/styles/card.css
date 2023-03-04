@@ -222,7 +222,8 @@ main .show-mean{
 
 main .show-mean__show{
   display: inline-flexbox;
-  border: 1px solid red;
+  width: auto;
+  margin: 0 auto;
 }
 
 .word-english {
@@ -560,6 +561,13 @@ input:invalid {
   text-align: center;
   line-height: 10px;
   box-shadow: 5px 5px 10px lightgrey;
+
+  transition: all 2s ease-in-out;
+}
+
+.cardMini__transform:hover{
+  transform: translate(50px, -30px) rotate(360deg);
+  cursor: pointer;
 }
 
 .card-position{
@@ -600,4 +608,32 @@ input:invalid {
   font-size: 16px;
   font-weight: bold;
   color:greenyellow;
+}
+
+.word-kind {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 35px;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.word-known{
+  color: lightseagreen;
+  transition: transform 300ms ease;
+}
+
+.word-known:hover{
+  transform: scale(1.2);
+}
+
+.word-unknown{
+  color: darkmagenta;
+  transition: transform 300ms ease;
+}
+
+.word-unknown:hover{
+  transform: scale(1.2);
 }
