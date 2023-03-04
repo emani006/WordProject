@@ -583,3 +583,21 @@ input:invalid {
   line-height: 20px;
   border: 1px solid grey;
 }
+
+.loading{
+  font-size: 20px;
+  font-weight: bold;
+  padding: 30px;
+}
+
+.navig .button-end-game{
+  font-size: 16px;
+  font-weight: bold;
+  color:red;
+}
+
+.navig .start-game{
+  font-size: 16px;
+  font-weight: bold;
+  color:greenyellow;
+}
