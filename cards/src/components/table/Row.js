@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import wordlist from './wordlist';
+import wordlist from '../wordlist';
 
 export default function Row(elem){
     const [isActive, setActive] = useState(elem.isActive);
-    const [id, setId] = useState(elem.id);
+    const [id] = useState(elem.id);
     const [english, setEnglish] = useState(elem.english);
     const [russian, setRussian] = useState(elem.russian);
     const [transcription, setTranscription] = useState(elem.transcription);
@@ -26,9 +26,10 @@ export default function Row(elem){
 
         let wordIndex = wordlist.indexOf(wordlist.find(item => item.id === id),0);
 
-        wordlist[wordIndex]= newWord;
 
         if (english !== '' && russian !== '' && transcription!== ''){
+            wordlist[wordIndex]= newWord;
+
             setValid(isValid = true);
             handleTableChange();
             console.log('isValid saveWord ' + isValid);
@@ -37,6 +38,7 @@ export default function Row(elem){
         }
         setValid(isValid = false);
     }
+
 
     const deleteWord = () => {
         let wordToBeDeleted = wordlist.find(item => item.id === id);
@@ -63,9 +65,15 @@ export default function Row(elem){
         console.log(wordlist[i].transcription);
 
         // возвращение предыдущего сохраненного значения
-        setEnglish(wordlist[i].english);
-        setRussian(wordlist[i].russian);
-        setTranscription(wordlist[i].transcription);
+        if (wordlist[i].english !== ''){
+            setEnglish(wordlist[i].english);
+        }
+        if (wordlist[i].russian !== '' ){
+            setRussian(wordlist[i].russian);
+        }
+        if (wordlist[i].transcription !== '' ){
+            setTranscription(wordlist[i].transcription);        
+        }
         setActive (!isActive);
     };
     

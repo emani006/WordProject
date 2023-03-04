@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Card from './Card'
 // import CardFlipFlop from './CardFlipFlop'
-import wordlist from '../components/wordlist'
+import wordlist from '../wordlist'
 // import CardClass from './CardClass'
 import CardMini from './CardMini';
 
@@ -11,7 +11,7 @@ export default function Slider(props) {
     const [wordCount, setWordCount] = useState(0);
     const [isLearned, setLearned] = useState(false);
 
-let wordsLearnedArray = [];
+    // let wordsLearnedArray = [];
 
     // const previousCard = () => {
     //     setCurrent(current - 1);
@@ -103,14 +103,14 @@ let wordsLearnedArray = [];
         </main>
     </div>
 
-    <div className='word-groups'>
-        <div className='wordsBox'>
+    <div className='words-group'>
+        <div className='wordsBox wordsUnknown'>
             <div className='wordsUnknown'>Unknown</div>
         </div>
 
         <div className='wordsBox'>
-            {current+1 < items.length ? <CardMini key={items.id} word={items[current+1]}/> : ''}
-            <div className='wordsRemain'>
+                {current+1 < items.length ? <CardMini className='cardMini' key={items.id} word={items[current+1]}/> : ''}
+            <div className=' wordsRemain'>
                 <p>Remain</p>
                 <div>
                     {items && items.length > 0 && (current < wordlist.length) ? (
@@ -123,10 +123,10 @@ let wordsLearnedArray = [];
             </div>
         </div>
 
-        <div className='wordsBox'>
+        <div className='wordsBox wordsKnown'>
             <div className='wordsKnown'>Known</div>
         </div>
     </div>
-    </div>
+</div>
         )
 }

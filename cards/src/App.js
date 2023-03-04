@@ -9,8 +9,8 @@ import wordlist from './components/wordlist'
 // import TableOne from "./components/TableOne"
 // import TableTwo from "./components/TableTwo"
 import NoMatch from './components/NoMatch'
-import TableInput from "./components/TableInput";
-import Slider from './components/Slider';
+import TableInput from "./components/table/TableInput";
+import Slider from './components/game/Slider';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 class App extends React.Component {

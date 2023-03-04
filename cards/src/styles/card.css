@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,600&display=swap');
-/* @import 'bootstrap/dist/css/bootstrap.min.css'; */
 
 * {
   margin:0;
@@ -17,6 +16,7 @@ body {
 .wrapper {
   width: 1280px;
   margin: 0 auto;
+  padding-bottom: 30px;
   background-color:aliceblue;
 }
 
@@ -29,6 +29,7 @@ header {
 header .top {
   position: fixed;
   top: 0;
+  left: 0;
   background-color: aqua;
   width: 100%;
   height: 80px;
@@ -61,12 +62,13 @@ header ul.nav {
   float: right;
   list-style: none;
   margin-top: 25px;
-  margin-right: 40px;
+  margin-right: 50px;
+  width: 200px;
 }
 
 header ul.nav li {
   display: inline;
-  margin-left: 25px;
+  margin-left: 20px;
   cursor: pointer;
   transition: opacity 200ms ease;
   text-decoration: none;
@@ -82,9 +84,11 @@ header ul.nav li:hover {
 }
 
 footer {
-  text-align: center;
+  display: inline;
   margin-top: 100px;
+  text-align: center;
 }
+
 
 /* start */
 /* .cardBox:before {
@@ -217,7 +221,8 @@ main .show-mean{
 }
 
 main .show-mean__show{
-  display:inline-flexbox;
+  display: inline-flexbox;
+  border: 1px solid red;
 }
 
 .word-english {
@@ -238,8 +243,10 @@ li{
 /* table START */
 
 .table__container {
-  /* display: grid; */
+  display: flex;
+  justify-content: center;
   margin-top: 80px;
+  margin-bottom: 30px;
   padding-top: 30px;
   padding-left: 45px;
   text-align: left;
@@ -480,10 +487,11 @@ input:invalid {
   color:black;
 }
 
-.word-groups{
+/* group of words to be learned */
+.words-group{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: 1100px;
   height: 150px;
   padding: 20px;
@@ -497,11 +505,17 @@ input:invalid {
 
 .wordsBox{
   display: flex;
-  z-index: 3;
+  flex-direction: column;
+  width: 30%;
+  /* z-index: 3; */
 }
 
 .wordsUnknown{
-  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  /* width: 250px; */
   border: 1px solid lightpink;
   background-color: lightpink;
   z-index: 2;
@@ -511,14 +525,20 @@ input:invalid {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 320px;
+  height: 110px;
+  /* width: 250px; */
   border: 1px solid rgb(175, 214, 248);
   background-color: rgb(175, 214, 248);
   z-index: 2;
+
 }
 
 .wordsKnown{
-  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  /* width: 250px; */
   border: 1px solid lightseagreen;
   background-color: lightseagreen;
   z-index: 2;
@@ -540,6 +560,10 @@ input:invalid {
   text-align: center;
   line-height: 10px;
   box-shadow: 5px 5px 10px lightgrey;
+}
+
+.card-position{
+  z-index: 4;
 }
 
 .wordEnglishMini {
