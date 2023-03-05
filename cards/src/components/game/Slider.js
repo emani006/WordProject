@@ -35,21 +35,21 @@ export default function Slider(props) {
             case 'Known' : {
                 setKnown('Known');
                 foundKnown = arrKnown.find(item => item.isKnown === 'Known');
-
-                if (foundKnown !== ''){
-                arrKnown.push(items[current]);
                 console.log(arrKnown);
-                }
+
+                // if (foundKnown !== ''){
+                // arrKnown.push(items[current]);
+                // }
                 break;
             }
             case 'Unknown' : {
                 setKnown('Unknown');
                 foundUnknown = arrUnknown.find(item => item.isKnown === 'Unknown');
-
-                if (foundKnown !== ''){
-                arrUnknown.push(items[current]);
                 console.log(arrUnknown);
-                }
+
+                // if (foundUnknown !== ''){
+                // arrUnknown.push(items[current]);
+                // }
                 break;
             }
             default : {
@@ -64,7 +64,6 @@ export default function Slider(props) {
     //     }
     // }
     }
-            console.log(items[current].isKnown)
 
 
 
@@ -169,7 +168,7 @@ export default function Slider(props) {
 
     <div className='words-group'>
         <div className='wordsBox'>
-            {(items[current].isKnown === 'Unknown') ? (
+            {current < items.length-1 && (items[current].isKnown === 'Unknown') ? (
                 <CardMini className='cardMini' key={items.id} word={items[current]}/>
                 ) : (
                     ''
@@ -198,7 +197,7 @@ export default function Slider(props) {
         </div>
 
         <div className='wordsBox'>
-            {(items[current].isKnown === 'Known') ? (
+            {current < items.length-1 && (items[current].isKnown === 'Known') ? (
                 <CardMini className='cardMini' key={items.id} word={items[current]}/>
                 ) : (
                     ''
