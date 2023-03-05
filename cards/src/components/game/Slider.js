@@ -10,19 +10,63 @@ export default function Slider(props) {
     const [current, setCurrent] = useState(0);
     const [wordCount, setWordCount] = useState(0);
     const [wordsLearnedArray] = useState([]);
-    // const [isKnown, setKnown] = useState(false);
+    const [isKnown, setKnown] = useState();
+
+    let arrKnown = [];
+    let arrUnknown = [];
 
 
-    // классы для компонента Card
+    // css классы для компонента Card
     const classname = 'show-mean';
     const buttonClassName = 'show-button';
+    // let miniKnownClassName = 'cardMini__known';
+    // let miniUnknownClassName = 'cardMini__unknown';
     
 
     const [items] = useState (props.words);
+    let foundUnknown;
+    let foundKnown;
 
-    const switchCard = () => {
-        
+    // слово знакомое/незнакомое
+    const switchCard = (kind) => {
+        items[current].isKnown = kind;
+
+        switch(kind){
+            case 'Known' : {
+                setKnown('Known');
+                foundKnown = arrKnown.find(item => item.isKnown === 'Known');
+
+                if (foundKnown !== ''){
+                arrKnown.push(items[current]);
+                console.log(arrKnown);
+                }
+                break;
+            }
+            case 'Unknown' : {
+                setKnown('Unknown');
+                foundUnknown = arrUnknown.find(item => item.isKnown === 'Unknown');
+
+                if (foundKnown !== ''){
+                arrUnknown.push(items[current]);
+                console.log(arrUnknown);
+                }
+                break;
+            }
+            default : {
+                console.log(kind);
+            }
+        }
+
+    //     if (kind === 'Known') {
+    //         setKnown('Known');
+    //     } else {if (kind === 'Unknown') {
+    //         setKnown('Unknown');
+    //     }
+    // }
     }
+            console.log(items[current].isKnown)
+
+
 
     // const previousCard = () => setCurrent((prevState) => ( prevState - 1 ));
     // const nextCard = () => setCurrent((prevState) => ( prevState + 1 ));
@@ -66,8 +110,8 @@ export default function Slider(props) {
             } else {
                 wordsLearnedArray.pop(items[current]);
             }
-        console.log(items[current].isLearned);
-            console.log(wordsLearnedArray);
+        // console.log(items[current].isLearned);
+        //     console.log(wordsLearnedArray);
     }
 
 
@@ -97,7 +141,7 @@ export default function Slider(props) {
 
         {/* show Card or loading text */}
         <div>
-            {items && items.length && (current < items.length) > 0 ? <Card key={items.id} word={items[current]} classname={classname} buttonClassName={buttonClassName} handleWordCounter={handleWordCounter}/> : loading}
+            {items && items.length && (current < items.length) > 0 ? <Card key={items.id} word={items[current]} classname={classname} buttonClassName={buttonClassName} handleWordCounter={handleWordCounter} switchCard={switchCard}/> : loading}
                 <div>
                     {items && items.length > 0 && (current < items.length) ? (
                         <div >
@@ -112,7 +156,7 @@ export default function Slider(props) {
         <div className="navig">
             {current < items.length-1 ? (
                 <button onClick={nextCard}>Next card &raquo; </button>
-                ) : current === items.length-1? (
+                ) : current === items.length-1 ? (
                         <button onClick={nextCard} className='button-end-game'> END GAME</button>
                     ) : ''
                 // <button className="disabled" disabled>
@@ -124,8 +168,17 @@ export default function Slider(props) {
     </div>
 
     <div className='words-group'>
-        <div className='wordsBox wordsUnknown'>
-            <div className='wordsUnknown'>Unknown</div>
+        <div className='wordsBox'>
+            {(items[current].isKnown === 'Unknown') ? (
+                <CardMini className='cardMini' key={items.id} word={items[current]}/>
+                ) : (
+                    ''
+                    // <CardMini className='cardMini__unknown' key={items.id} word={items[current]}/>
+                )
+                }
+            <div className='wordsUnknown'>
+                <p>Unknown</p>
+            </div>
         </div>
 
         <div className='wordsBox'>
@@ -144,8 +197,17 @@ export default function Slider(props) {
             </div>
         </div>
 
-        <div className='wordsBox wordsKnown'>
-            <div className='wordsKnown'>Known</div>
+        <div className='wordsBox'>
+            {(items[current].isKnown === 'Known') ? (
+                <CardMini className='cardMini' key={items.id} word={items[current]}/>
+                ) : (
+                    ''
+                    // <CardMini className='cardMini__unknown' key={items.id} word={items[current]}/>
+                )
+                }
+            <div className='wordsKnown'>
+                <p>Known</p>
+            </div>
         </div>
     </div>
 </div>
