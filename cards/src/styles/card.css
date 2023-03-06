@@ -566,6 +566,11 @@ input:invalid {
 
   transition: all 2s ease-in-out;
 }
+/* .cardMini .known:nth-child(1){top: 0; left: 0; display: block; z-index: 1}
+.cardMini .known:nth-child(1){top: 5px; left: 5px; display: block; z-index: 2}
+.cardMini .known:nth-child(1){top: 10px; left: 10px; display: block; z-index: 3}
+.cardMini .known:nth-child(1){top: 15px; left: 15px; display: block; z-index: 4} */
+
 
 /* .cardMini__transform:hover{
   transform: translate(50px, -30px) rotate(360deg);
@@ -639,11 +644,3 @@ input:invalid {
 .word-unknown:hover{
   transform: scale(1.2);
 }
-
-/* .cardMini__unknown{
-  display: none;
-}
-
-.cardMini__known{
-  display: none;
-} */
