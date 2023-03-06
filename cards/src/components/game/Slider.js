@@ -11,6 +11,8 @@ export default function Slider(props) {
     const [wordCount, setWordCount] = useState(0);
     const [wordsLearnedArray] = useState([]);
     const [isKnown, setKnown] = useState(props.isKnown);
+    const [arrKnown, setArrKnown] = useState(props.arrKnown);
+    const [arrUnknown, setArrUnknown] = useState(props.arrUnknown);
 
     // css классы для компонента Card
     const classname = 'show-mean';
@@ -18,16 +20,17 @@ export default function Slider(props) {
 
     const [items] = useState (props.words);
 
+
     // слово знакомое/незнакомое
     const switchCard = (kind) => {    
         items[current].isKnown = kind;
 
         if (kind === 'Known' && current < items.length) {
                 setKnown('Known');
-                props.arrKnown.push(items[current]);
+                arrKnown.push(items[current]);
         } else if (kind === 'Unknown' && current < items.length) {
                 setKnown('Unknown');
-                props.arrUnknown.push(items[current]);
+                arrUnknown.push(items[current]);
             } 
         }
 
@@ -50,15 +53,13 @@ export default function Slider(props) {
         if (current === items.length){
             setCurrent(0);
             setWordCount(0);
+            setArrKnown([]);
+            setArrUnknown([]);
         } else {
         setCurrent((prevState) => ( prevState - 1 ));
         }
     };
 
-    const clearArrays = () => {
-        props.arrKnown = [];
-        props.arrUnknown = [];
-    }
 
     // альтернатива, если закончился массив выводимых слов
     const loading = <div className="loading">That's all, folks! 
@@ -139,7 +140,7 @@ export default function Slider(props) {
         <div className='wordsBox'>
             {/* {current < items.length-1 && (items[current].isKnown === 'Unknown') ? ( */}
             {current < items.length && (props.arrUnknown.length !== 0) ? (
-                props.arrUnknown.map((el,index) => (
+                arrUnknown.map((el,index) => (
                     <CardMini className='cardMini' key={index} word={el}/>
                     ))
                 // <CardMini className='cardMini' key={items.id} word={props.arrUnknown}/>
@@ -147,9 +148,9 @@ export default function Slider(props) {
             <div className='wordsUnknown'>
                 <p>Unknown</p>
                 <div>
-                    {current < items.length && (props.arrUnknown.length !== 0) ? (
+                    {current < items.length && (arrUnknown.length !== 0) ? (
                             <div >
-                                Known words: {props.arrUnknown.length}
+                                Unknown words: {arrUnknown.length}
                             </div>) : (
                                 ''
                             )}
@@ -174,8 +175,8 @@ export default function Slider(props) {
         </div>
 
         <div className='wordsBox'>
-            {current < items.length && (props.arrKnown.length !== 0) ? (
-                props.arrKnown.map((el,index) => (
+            {current < items.length && (arrKnown.length !== 0) ? (
+                arrKnown.map((el,index) => (
                     <CardMini className='cardMini' key={index} word={el}/>
                 ))                
                 // <CardMini className='cardMini' key={items.id} word={items[current]}/>
@@ -183,9 +184,9 @@ export default function Slider(props) {
             <div className='wordsKnown'>
                 <p>Known</p>
                 <div>
-                    {current < items.length && (props.arrKnown.length !== 0) ? (
+                    {current < items.length && (arrKnown.length !== 0) ? (
                             <div >
-                                Known words: {props.arrKnown.length}
+                                Known words: {arrKnown.length}
                             </div>) : (
                                 ''
                             )}
