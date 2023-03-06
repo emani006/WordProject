@@ -640,10 +640,10 @@ input:invalid {
   transform: scale(1.2);
 }
 
-.cardMini__unknown{
+/* .cardMini__unknown{
   display: none;
 }
 
 .cardMini__known{
   display: none;
-}
+} */

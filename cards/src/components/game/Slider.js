@@ -10,61 +10,26 @@ export default function Slider(props) {
     const [current, setCurrent] = useState(0);
     const [wordCount, setWordCount] = useState(0);
     const [wordsLearnedArray] = useState([]);
-    const [isKnown, setKnown] = useState();
-
-    let arrKnown = [];
-    let arrUnknown = [];
-
+    const [isKnown, setKnown] = useState(props.isKnown);
 
     // css классы для компонента Card
     const classname = 'show-mean';
     const buttonClassName = 'show-button';
-    // let miniKnownClassName = 'cardMini__known';
-    // let miniUnknownClassName = 'cardMini__unknown';
-    
 
     const [items] = useState (props.words);
-    let foundUnknown;
-    let foundKnown;
 
     // слово знакомое/незнакомое
-    const switchCard = (kind) => {
+    const switchCard = (kind) => {    
         items[current].isKnown = kind;
 
-        switch(kind){
-            case 'Known' : {
+        if (kind === 'Known' && current < items.length) {
                 setKnown('Known');
-                foundKnown = arrKnown.find(item => item.isKnown === 'Known');
-                console.log(arrKnown);
-
-                // if (foundKnown !== ''){
-                // arrKnown.push(items[current]);
-                // }
-                break;
-            }
-            case 'Unknown' : {
+                props.arrKnown.push(items[current]);
+        } else if (kind === 'Unknown' && current < items.length) {
                 setKnown('Unknown');
-                foundUnknown = arrUnknown.find(item => item.isKnown === 'Unknown');
-                console.log(arrUnknown);
-
-                // if (foundUnknown !== ''){
-                // arrUnknown.push(items[current]);
-                // }
-                break;
-            }
-            default : {
-                console.log(kind);
-            }
+                props.arrUnknown.push(items[current]);
+            } 
         }
-
-    //     if (kind === 'Known') {
-    //         setKnown('Known');
-    //     } else {if (kind === 'Unknown') {
-    //         setKnown('Unknown');
-    //     }
-    // }
-    }
-
 
 
     // const previousCard = () => setCurrent((prevState) => ( prevState - 1 ));
@@ -90,6 +55,10 @@ export default function Slider(props) {
         }
     };
 
+    const clearArrays = () => {
+        props.arrKnown = [];
+        props.arrUnknown = [];
+    }
 
     // альтернатива, если закончился массив выводимых слов
     const loading = <div className="loading">That's all, folks! 
@@ -168,15 +137,23 @@ export default function Slider(props) {
 
     <div className='words-group'>
         <div className='wordsBox'>
-            {current < items.length-1 && (items[current].isKnown === 'Unknown') ? (
-                <CardMini className='cardMini' key={items.id} word={items[current]}/>
-                ) : (
-                    ''
-                    // <CardMini className='cardMini__unknown' key={items.id} word={items[current]}/>
-                )
-                }
+            {/* {current < items.length-1 && (items[current].isKnown === 'Unknown') ? ( */}
+            {current < items.length && (props.arrUnknown.length !== 0) ? (
+                props.arrUnknown.map((el,index) => (
+                    <CardMini className='cardMini' key={index} word={el}/>
+                    ))
+                // <CardMini className='cardMini' key={items.id} word={props.arrUnknown}/>
+                ) : ('')}
             <div className='wordsUnknown'>
                 <p>Unknown</p>
+                <div>
+                    {current < items.length && (props.arrUnknown.length !== 0) ? (
+                            <div >
+                                Known words: {props.arrUnknown.length}
+                            </div>) : (
+                                ''
+                            )}
+                </div>
             </div>
         </div>
 
@@ -197,15 +174,22 @@ export default function Slider(props) {
         </div>
 
         <div className='wordsBox'>
-            {current < items.length-1 && (items[current].isKnown === 'Known') ? (
-                <CardMini className='cardMini' key={items.id} word={items[current]}/>
-                ) : (
-                    ''
-                    // <CardMini className='cardMini__unknown' key={items.id} word={items[current]}/>
-                )
-                }
+            {current < items.length && (props.arrKnown.length !== 0) ? (
+                props.arrKnown.map((el,index) => (
+                    <CardMini className='cardMini' key={index} word={el}/>
+                ))                
+                // <CardMini className='cardMini' key={items.id} word={items[current]}/>
+                ) : ('')}
             <div className='wordsKnown'>
                 <p>Known</p>
+                <div>
+                    {current < items.length && (props.arrKnown.length !== 0) ? (
+                            <div >
+                                Known words: {props.arrKnown.length}
+                            </div>) : (
+                                ''
+                            )}
+                </div>
             </div>
         </div>
     </div>

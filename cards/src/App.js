@@ -15,6 +15,8 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 class App extends React.Component {
   render (){
+    let arrKnown = [];
+    let arrUnknown = [];
 
     return (
     <Router>
@@ -22,7 +24,7 @@ class App extends React.Component {
           <Header/>
             <Routes>
               <Route exact path="/" index element={<TableInput item={wordlist}/>} />
-              <Route path="/game" element={<Slider words={wordlist.map(word => {return word})}/>}/>
+              <Route path="/game" element={<Slider words={wordlist.map(word => {return word})} arrKnown={arrKnown} arrUnknown={arrUnknown}/>}/>
               {/* <Route path="/sign-in" element={''}> Sign-in page</Route>
               <Route path="/sign-up" element={''}> Sign-up page</Route> */}
               <Route path="*" element={<NoMatch />} />
