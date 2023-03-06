@@ -138,13 +138,13 @@ export default function Slider(props) {
 
     <div className='words-group'>
         <div className='wordsBox'>
-            {/* {current < items.length-1 && (items[current].isKnown === 'Unknown') ? ( */}
-            {current <= items.length && (props.arrUnknown.length !== 0) ? (
-                arrUnknown.map((el,index) => (
-                    <CardMini className='cardMini' key={index} word={el}/>
-                    ))
-                // <CardMini className='cardMini' key={items.id} word={props.arrUnknown}/>
-                ) : ('')}
+            <div>
+                {current <= items.length && (props.arrUnknown.length !== 0) ? (
+                    arrUnknown.map((el,index) => (
+                        <CardMini className='cardMini' key={index} word={el}/>
+                        ))
+                    ) : ('')}
+            </div>
             <div className='wordsUnknown'>
                 <p>Unknown</p>
                 <div>
@@ -175,12 +175,13 @@ export default function Slider(props) {
         </div>
 
         <div className='wordsBox'>
-            {current <= items.length && (arrKnown.length !== 0) ? (
-                arrKnown.map((el,index) => (
-                    <CardMini className='cardMini' key={index} word={el}/>
-                ))                
-                // <CardMini className='cardMini' key={items.id} word={items[current]}/>
-                ) : ('')}
+            <div>
+                {current <= items.length && (arrKnown.length !== 0) ? (
+                    arrKnown.map((el,index) => (
+                        <CardMini className='cardMini' key={index} word={el}/>
+                    ))                
+                    ) : ('')}
+            </div>
             <div className='wordsKnown'>
                 <p>Known</p>
                 <div>

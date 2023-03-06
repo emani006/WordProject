@@ -516,11 +516,9 @@ input:invalid {
   flex-direction: column;
   justify-content: space-around;
   height: 110px;
-
-  /* width: 250px; */
   border: 1px solid lightpink;
   background-color: lightpink;
-  z-index: 2;
+  z-index: 3;
 }
 
 .wordsRemain{
@@ -528,11 +526,9 @@ input:invalid {
   flex-direction: column;
   justify-content: space-around;
   height: 110px;
-  /* width: 250px; */
   border: 1px solid rgb(175, 214, 248);
   background-color: rgb(175, 214, 248);
-  z-index: 2;
-
+  z-index: 3;
 }
 
 .wordsKnown{
@@ -540,11 +536,9 @@ input:invalid {
   flex-direction: column;
   justify-content: space-around;
   height: 110px;
-
-  /* width: 250px; */
   border: 1px solid lightseagreen;
   background-color: lightseagreen;
-  z-index: 2;
+  z-index: 3;
 }
 
 .cardMini{
@@ -563,41 +557,29 @@ input:invalid {
   text-align: center;
   line-height: 10px;
   box-shadow: 5px 5px 10px lightgrey;
+  width: 250px;
 
-  transition: all 2s ease-in-out;
-}
-/* .cardMini .known:nth-child(1){top: 0; left: 0; display: block; z-index: 1}
-.cardMini .known:nth-child(1){top: 5px; left: 5px; display: block; z-index: 2}
-.cardMini .known:nth-child(1){top: 10px; left: 10px; display: block; z-index: 3}
-.cardMini .known:nth-child(1){top: 15px; left: 15px; display: block; z-index: 4} */
-
-
-/* .cardMini__transform:hover{
-  transform: translate(50px, -30px) rotate(360deg);
-  cursor: pointer;
+  /* transition: all 2s ease-in-out; */
 }
 
-.card-position{
-  z-index: 4;
-} */
 
 .wordEnglishMini {
   font-weight: 600;
   font-size: 35px;
 }
 
-.showButtonMini{
+/* .showButtonMini{
   margin: 0 auto;
   width: 200px;
-  height: 40px;
-  font-size: 14px;
-  font-weight: bold;
-  background: rgb(255, 177, 31);
+  height: 40px; */
+  /* font-size: 14px;
+  font-weight: bold; */
+  /* background: rgb(255, 177, 31);
   border-radius: 20px;
   text-align: center;
-  line-height: 20px;
-  border: 1px solid grey;
-}
+  line-height: 20px; */
+  /* border: 1px solid grey; */
+/* } */
 
 .loading{
   font-size: 20px;
@@ -627,6 +609,7 @@ input:invalid {
   font-weight: bold;
 }
 
+/* кнопки Unknown / Known */
 .word-known{
   color: lightseagreen;
   transition: transform 300ms ease;
