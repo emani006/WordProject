@@ -24,14 +24,22 @@ export default function Slider(props) {
     // слово знакомое/незнакомое
     const switchCard = (kind) => {    
         items[current].isKnown = kind;
+        let knownWord = arrKnown.includes(items[current]);
+        let unknownWord = arrUnknown.includes(items[current]);
 
-        if (kind === 'Known' && current < items.length) {
+        if (knownWord === true) {
+                arrKnown.splice(arrKnown.indexOf(items[current]), 1);
+            } else if (unknownWord === true) {
+                arrUnknown.splice(arrUnknown.indexOf(items[current]), 1);
+            }
+    
+        if (kind === 'Known' && current < items.length && knownWord === false) {
                 setKnown('Known');
                 arrKnown.push(items[current]);
-        } else if (kind === 'Unknown' && current < items.length) {
+        } else if (kind === 'Unknown' && current < items.length && unknownWord === false) {
                 setKnown('Unknown');
                 arrUnknown.push(items[current]);
-            } 
+            }   
         }
 
 
