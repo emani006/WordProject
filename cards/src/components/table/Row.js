@@ -93,8 +93,8 @@ export default function Row(elem){
                                 {russian}
                             </td>
                             <td className='table__cell'>
-                                <button className='table__button e' onClick={handleTableChange}>Edit</button>
-                                <button className='table__button d' onClick={deleteWord}>Delete</button>
+                                <button className='table__button editButton' onClick={handleTableChange}>Edit</button>
+                                <button className='table__button deleteButton' onClick={deleteWord}>Delete</button>
                             </td>
                         </tr>
                 )
@@ -112,8 +112,8 @@ export default function Row(elem){
                             <input name='rus' type='text' required value={russian} onChange={(event) => setRussian(event.target.value)}/>
                         </td>
                         <td className='table__cell'>
-                            <button className='table__button s' disabled={isValid} onClick={changeWord}>Save</button>
-                            <button className='table__button c' onClick={cancelAction}>Cancel</button>
+                            <button className='table__button saveButton' disabled={isValid} onClick={changeWord}>Save</button>
+                            <button className='table__button cancelButton' onClick={cancelAction}>Cancel</button>
                         </td>
                 </tr>
     )

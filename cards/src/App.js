@@ -13,8 +13,7 @@ import TableInput from "./components/table/TableInput";
 import Slider from './components/game/Slider';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
-class App extends React.Component {
-  render (){
+export default function App () {
     let arrKnown = [];
     let arrUnknown = [];
 
@@ -54,6 +53,3 @@ class App extends React.Component {
       </Router>
     );
   }
-}
-
-export default App;

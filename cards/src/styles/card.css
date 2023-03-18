@@ -292,36 +292,36 @@ li{
   transform: scale(1.2) translateY(-1px);
 } */
 
-.e {
+.editButton {
   background-color: lightgreen;
 }
 
-.e:hover {
+.editButton:hover {
   transform: scale(1.2) translateY(-1px);
 }
 
-.d {
+.deleteButton {
   background-color: orange;
 }
 
-.d:hover {
+.deleteButton:hover {
   transform: scale(1.2) translateY(-1px);
 }
 
 
-.s {
+.saveButton {
   background-color: lightseagreen;
 }
 
-.s:enabled {
+.saveButton:enabled {
   transform: scale(1.2) translateY(-1px);
 }
 
-.s:disabled {
+.saveButton:disabled {
   transform: none;
 }
 
-.c {
+.cancelButton {
   background-color: lightcoral;
 }
 
@@ -508,7 +508,6 @@ input:invalid {
   display: flex;
   flex-direction: column;
   width: 30%;
-  /* z-index: 3; */
 }
 
 .wordsUnknown{
@@ -567,19 +566,6 @@ input:invalid {
   font-weight: 600;
   font-size: 35px;
 }
-
-/* .showButtonMini{
-  margin: 0 auto;
-  width: 200px;
-  height: 40px; */
-  /* font-size: 14px;
-  font-weight: bold; */
-  /* background: rgb(255, 177, 31);
-  border-radius: 20px;
-  text-align: center;
-  line-height: 20px; */
-  /* border: 1px solid grey; */
-/* } */
 
 .loading{
   font-size: 20px;
