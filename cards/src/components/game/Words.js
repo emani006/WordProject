@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Card from './Card'
 // import CardFlipFlop from './CardFlipFlop'
 
-export default class Words extends Component {
-    render() {
-
+export default function Words() {
         return (
             <main>
                     {this.props.words.map(el => (
@@ -14,4 +12,3 @@ export default class Words extends Component {
             </main>
         )
     }
-}

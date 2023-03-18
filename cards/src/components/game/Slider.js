@@ -22,8 +22,9 @@ export default function Slider(props) {
 
 
     // слово знакомое/незнакомое
-    const switchCard = (kind) => {    
-        items[current].isKnown = kind;
+    const switchCard = (kind, isKnown) => {    
+        isKnown = kind;
+        // items[current].isKnown = kind;
         let knownWord = arrKnown.includes(items[current]);
         let unknownWord = arrUnknown.includes(items[current]);
 
@@ -87,8 +88,6 @@ export default function Slider(props) {
             } else {
                 wordsLearnedArray.pop(items[current]);
             }
-        // console.log(items[current].isLearned);
-        //     console.log(wordsLearnedArray);
     }
 
 
@@ -144,6 +143,7 @@ export default function Slider(props) {
         </main>
     </div>
 
+    {/* array of unknown words */}
     <div className='words-group'>
         <div className='wordsBox'>
             <div>
@@ -166,6 +166,7 @@ export default function Slider(props) {
             </div>
         </div>
 
+    {/* remain words */}
         <div className='wordsBox'>
                 {current+1 < items.length ? <CardMini className='cardMini' key={items.id} word={items[current+1]}/> : ''
                 }
@@ -182,6 +183,7 @@ export default function Slider(props) {
             </div>
         </div>
 
+    {/* array of known words */}
         <div className='wordsBox'>
             <div>
                 {current <= items.length && (arrKnown.length !== 0) ? (

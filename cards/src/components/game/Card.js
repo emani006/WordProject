@@ -5,7 +5,7 @@ export default function Card (props){
     // let buttonClassName = 'show-button';
     let buttonName = 'Click to translate';
     let [isActive, setActive] = useState(props.isActive);
-    let [isKnown, setKnown] = useState(props.isKnown);
+    // let [isKnown, setKnown] = useState(props.isKnown);
 
 let classname = props.classname;
 let buttonClassName = props.buttonClassName;
@@ -21,12 +21,10 @@ let buttonClassName = props.buttonClassName;
     // }
 
     const notShow = () => {
-        // console.log('isActive prev: ' + isActive)
         setActive (isActive = false);
         // if (isActive === true){
         //     setActive (false);
         // }
-    // console.log('isActive post: ' + isActive)
     }
 
     if (isActive === true) {

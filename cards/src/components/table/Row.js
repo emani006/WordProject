@@ -42,6 +42,7 @@ export default function Row(elem){
 
     const deleteWord = () => {
         let wordToBeDeleted = wordlist.find(item => item.id === id);
+        console.log(wordToBeDeleted);
 
         let i = wordlist.indexOf(wordToBeDeleted);
         wordlist.splice(i, 1);
